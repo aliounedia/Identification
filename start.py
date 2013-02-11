@@ -12,6 +12,7 @@ import sys
 from PyQt4 import QtCore, QtGui
 import sqlite
 from  manage_window import *
+import ctypes
 _debug=True
 
 class StartQT4(QtGui.QMainWindow):
@@ -38,10 +39,20 @@ class StartQT4(QtGui.QMainWindow):
 ##                            self.onQuit)
 
         # Hide Window Task bar
+
         hide_Taskmgr()
         # Hide Window Task Manager
         hide_taskbar()
-      
+
+        #ctypes.windll.user32.LockWorkStation()
+       
+
+    
+    def keyPressEvent(self, e):
+        ctypes.windll.user32.LockWorkStation()
+        return 
+       
+            
     def  indentify_user(self):
         print 'Indentify User'
         sqlite.insert(

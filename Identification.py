@@ -2,13 +2,13 @@
 
 # Form implementation generated from reading ui file 'C:\Indentification\identification.ui'
 #
-# Created: Thu Feb 07 21:59:13 2013
+# Created: Mon Feb 11 16:04:18 2013
 #      by: PyQt4 UI code generator 4.8.4
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt4 import QtCore, QtGui
-
+import ctypes
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
@@ -17,12 +17,12 @@ except AttributeError:
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName(_fromUtf8("Form"))
-        Form.setWindowModality(QtCore.Qt.WindowModal)
+        Form.setWindowModality(QtCore.Qt.NonModal)
         Form.setEnabled(True)
-     
-            
-        Form.resize(616, 202)
-        #From.addAction("About", self.about)
+        #Form.resize(616, 202)
+        user32 = ctypes.windll.user32
+        un , deux = user32.GetSystemMetrics(0) ,user32.GetSystemMetrics(1) 
+        Form.resize(un, deux)
         self.gridLayoutWidget = QtGui.QWidget(Form)
         self.gridLayoutWidget.setGeometry(QtCore.QRect(190, 90, 211, 61))
         self.gridLayoutWidget.setObjectName(_fromUtf8("gridLayoutWidget"))
@@ -47,6 +47,9 @@ class Ui_Form(object):
         self.label_2 = QtGui.QLabel(Form)
         self.label_2.setGeometry(QtCore.QRect(110, 130, 71, 16))
         self.label_2.setObjectName(_fromUtf8("label_2"))
+        self.label_3 = QtGui.QLabel(Form)
+        self.label_3.setGeometry(QtCore.QRect(150, 20, 361, 61))
+        self.label_3.setObjectName(_fromUtf8("label_3"))
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -56,6 +59,8 @@ class Ui_Form(object):
         self.pushButton.setText(QtGui.QApplication.translate("Form", "Indentification", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("Form", "Login :", None, QtGui.QApplication.UnicodeUTF8))
         self.label_2.setText(QtGui.QApplication.translate("Form", "Mot de Passe:", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_3.setText(QtGui.QApplication.translate("Form", "Cette session restera fermée tant que vous ne vous authentifierez  pas.\n"
+"Au bout de trois tentatives , votre session restera bloquee , et vous ne \n"
+"pourrez plus travailler.\n"
+"Merci de vous aurthentifier!", None, QtGui.QApplication.UnicodeUTF8))
 
-
-    

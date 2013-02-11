@@ -3,7 +3,7 @@
  <class>Form</class>
  <widget class="QWidget" name="Form">
   <property name="windowModality">
-   <enum>Qt::WindowModal</enum>
+   <enum>Qt::NonModal</enum>
   </property>
   <property name="enabled">
    <bool>true</bool>
@@ -84,6 +84,22 @@
    </property>
    <property name="text">
     <string>Mot de Passe:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>20</y>
+     <width>361</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cette session restera fermée tant que vous ne vous authentifierez  pas.
+Au bout de trois tentatives , votre session restera bloquee , et vous ne 
+pourrez plus travailler.
+Merci de vous aurthentifier!</string>
    </property>
   </widget>
  </widget>
