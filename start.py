@@ -34,9 +34,7 @@ class StartQT4(QtGui.QMainWindow):
                                QtCore.SIGNAL("clicked()"),
                                self.indentify_user)
 
-##        QtCore.QObject.connect(self,
-##                            QtCore.SIGNAL('destroyed()'),
-##                            self.onQuit)
+
 
         # Hide Window Task bar
 
@@ -48,8 +46,17 @@ class StartQT4(QtGui.QMainWindow):
        
 
     
-    def keyPressEvent(self, e):
-        ctypes.windll.user32.LockWorkStation()
+    def keyPressEvent(self, event):
+        #self.application.exit()
+        reply = QtGui.QMessageBox.question(self, 'Message',
+             "Merci de vous authtentifier!", QtGui.QMessageBox.Yes, 
+            QtGui.QMessageBox.No)
+
+        if reply == QtGui.QMessageBox.Yes:
+             event.accept()
+        else:
+             event.ignore()
+        #ctypes.windll.user32.LockWorkStation()
         return 
        
             
@@ -62,7 +69,6 @@ class StartQT4(QtGui.QMainWindow):
         unhide_Taskmgr()
         # Hide Window Task Manager
         unhide_taskbar()
-      
         self.application.exit()
 
         
